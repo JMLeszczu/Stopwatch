@@ -1,0 +1,81 @@
+@use "_colors.scss" as *;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	background-color: #000;
+}
+
+.main {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.stopwatch {
+	min-width: 280px;
+	min-height: 200px;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	align-items: center;
+	background-color: $bg-stopwatch;
+	border-radius: 10px;
+	&__time,
+	&__header,
+	&__wrapper {
+		justify-self: center;
+	}
+	&__header,
+	&__time {
+		color: white;
+	}
+	&__header {
+		font-size: 2.5rem;
+		text-transform: uppercase;
+	}
+	&__time {
+		font-size: 2.2rem;
+		font-weight: normal;
+		letter-spacing: 2px;
+	}
+	&__wrapper {
+		padding: 2em;
+	}
+	&__button {
+		width: 30px;
+		height: 30px;
+		margin-right: 1em;
+		margin-left: 1em;
+		cursor: pointer;
+		background: white;
+		border: none;
+		border-radius: 50%;
+		transition: background-color 0.3s;
+		&:focus {
+			background-color: rgb(196, 196, 196);
+			animation: borderfill 1s 0s infinite both;
+		}
+	}
+}
+
+@keyframes borderfill {
+	from {
+		border-color: #000;
+	}
+	to {
+		border-color: rgb(0, 153, 255);
+	}
+}
